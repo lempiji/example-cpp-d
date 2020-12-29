@@ -8,6 +8,7 @@ alias cppstring = basic_string!char;
 
 extern (C++, mylib)
 {
+@nogc:
     cppstring create_string();
     vector!int create_vector();
     unique_ptr!int create_pointer();
