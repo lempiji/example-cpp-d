@@ -1,0 +1,10 @@
+name "example-cpp-d"
+description "A minimal D application with C++"
+authors "lempiji"
+license "public domain"
+
+preBuildCommands "copy ..\\cpp\\MyLib\\x64\\Release\\MyLib.lib .\\MyLib.lib" platform="windows-x86_64"
+
+libs "Mylib"
+dflags "-L-lstdc++" platform="dmd"
+lflags "/LTCG"
