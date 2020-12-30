@@ -6,7 +6,8 @@ license "public domain"
 preBuildCommands "copy ..\\cpp\\MyLib\\x64\\Release\\MyLib.lib .\\MyLib.lib" platform="windows-x86_64"
 
 libs "Mylib"
-//dflags "-L-lstdc++" platform="dmd"      // ランタイムライブラリが「マルチスレッド（/MT）」かつDMDの場合（LDCの場合は指定不要）
+//dflags "-mscrtlib=libcmt" platform="dmd"  // ランタイムライブラリが「マルチスレッド（/MT）」かつDMDの場合
+//dflags "--mscrtlib=libcmt" platform="ldc" // ランタイムライブラリが「マルチスレッド（/MT）」かつLDCの場合（無くても動作する）
 dflags "-mscrtlib=msvcrt" platform="dmd"  // ランタイムライブラリが「マルチスレッド DLL（/MD）」かつDMDの場合
 dflags "--mscrtlib=msvcrt" platform="ldc" // ランタイムライブラリが「マルチスレッド DLL（/MD）」かつLDCの場合
 lflags "/LTCG"
